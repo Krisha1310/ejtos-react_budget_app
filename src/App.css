@@ -37,27 +37,54 @@
   }
 }
 
-.slt-currency{
- background-color: lightgreen;
+.dropdown-toggle,
+.dropdown-toggle:active,
+.dropdown-toggle:hover
+{
+ background-color: lightgreen !important;
+ border-color: lightgreen !important;
  color: white;
-
- display: block;
-    width: 100%;
-    padding: 0.375rem 0.75rem;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    appearance: none;
-    border-radius: 0.375rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+ height: 35px;
 }
+
+.dropdown-item{
+ background-color: lightgreen;
+ color: #000;
+}
+.dropdown-item:active,
+.dropdown-item:hover {
+ background-color: #fff;
+ color: #000;
+}
+.dropdown-item{
+ background-color: lightgreen;
+ color: #000;
+}
+.dropdown-menu{
+    background-color: lightgreen;
+}
+
 .slt-currency option{
     color: #000;
 }
-.slt-currency option:checked,
-.slt-currency option:focus {
-  color: #000;
-  background-color: white;
+
+.Budg{
+width: 67%;
+height: 24px;
+}
+.d-button{
+    color: white;
+    font-size: 20px;
+    background: red;
+    border-radius: 50%;
+    font-weight: bolder;
+    border: 0;
+}
+.i-button{
+    color: white;
+    font-size: 20px;
+    background: rgb(193, 243, 117);
+    border-radius: 50%;
+    font-weight: bolder;
+    border: 0;
 }

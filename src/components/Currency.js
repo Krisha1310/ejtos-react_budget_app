@@ -1,11 +1,28 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
-import '../App.css'
-const Currency = () => {
+import '../App.css';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+const Currency = (prop) => {
   const {dispatch,currency } = useContext(AppContext);
-  var displayName = "Currency (" + currency + ")";
+  var D = "";
+    switch(currency){
+        case "$": D = "$ Dollar"; break;
+        case "£": D = "£ Pound";  break;
+        case "€": D = "€ Euro";  break;
+        case "₹": D = "₹ Ruppee";  break;
+        default: D = "£ Pound"; break;
+    }
+    var displayName = "Currency (" + D + ")";
     const changeCurrency = (val) => {
-        displayName = "Currency (" + val + ")";
+        switch(val){
+            case "$": D = "$ Dollar"; break;
+            case "£": D = "£ Pound"; break;
+            case "€": D = "€ Euro"; break;
+            case "₹": D = "₹ Ruppee"; break;
+            default: D = "£ Pound"; break;
+        }
+        displayName = "Currency (" + D + ")";
         dispatch({
             type: 'CHG_CURRENCY',
             payload: val,
@@ -13,28 +30,14 @@ const Currency = () => {
     }
     
   return (
-    <div className='alert alert-secondary form-group'>  {
-      <select name="Currency" id="Currency" value={displayName} className="custom-select slt-currency"
-      onChange={(event) => changeCurrency(event.target.value)}>
-        <option value="$">$ Dollar</option>
-        <option value="£">£ Pound</option>
-        <option value="€">€ Euro</option>
-        <option value="₹">₹ Ruppee</option>
-      </select>	
-      }	
-    </div>
-    // <div className='alert alert-secondary'> <div className="dropdown">
-    // <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    //     Dropdown button
-    // </button>
-    // <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    //     <a className="dropdown-item" href="#">$ Dollar</a>
-    //     <a className="dropdown-item" href="#">£ Pound</a>
-    //     <a className="dropdown-item" href="#">€ Euro</a>
-    //     <a className="dropdown-item" href="#">₹ Ruppee</a>
-    // </div>
-    // </div>
-    // </div>
+    <div className='alert alert-secondary d-flex'>
+     <DropdownButton onSelect={changeCurrency} title={displayName} id="dropdown-basic">
+       <Dropdown.Item eventKey="$">$ Dollar</Dropdown.Item>
+       <Dropdown.Item eventKey="£">£ Pound</Dropdown.Item>
+       <Dropdown.Item eventKey="€">€ Euro</Dropdown.Item>
+       <Dropdown.Item eventKey="₹">₹ Ruppee</Dropdown.Item>
+     </DropdownButton>
+   </div>
     );
 };
 export default Currency;
