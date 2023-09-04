@@ -36,3 +36,28 @@
     transform: rotate(360deg);
   }
 }
+
+.slt-currency{
+ background-color: lightgreen;
+ color: white;
+
+ display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    appearance: none;
+    border-radius: 0.375rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.slt-currency option{
+    color: #000;
+}
+.slt-currency option:checked,
+.slt-currency option:focus {
+  color: #000;
+  background-color: white;
+}
